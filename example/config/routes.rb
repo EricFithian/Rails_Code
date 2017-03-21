@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   get '/products' => 'products#index'
 
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
 end
