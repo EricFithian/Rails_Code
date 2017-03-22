@@ -27,10 +27,12 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find_by(id: params[:id])
     render 'edit.html.erb'
   end
 
   def update
+    @recipe = Recipe.find_by(id: params[:id])
     redirect_to "/recipes/#{@recipe.id}"
   end
 
