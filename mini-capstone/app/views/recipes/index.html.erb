@@ -1,0 +1,10 @@
+<h1>See all our delicious recipes!</h1>
+
+<% @recipes.each do |recipe|%>
+  <h2>Title: <%= recipe.title %></h2>
+  <p>Chef: <%= recipe.chef %></p>
+  <p>Ingredients: <%= recipe.ingredients %></p>
+  <p>Directions: <%= recipe.directions %></p>
+  <p>Prep Time: <%= recipe.prep_time %></p>
+  <p>Price: <%= recipe.price %></p>
+<% end %>
