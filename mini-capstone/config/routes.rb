@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/recipes/:id' => 'recipes#destroy'
 
   get '/signup' => 'users#new'
-  post '/recipes' => 'users#create'
+  post '/users' => 'users#create'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

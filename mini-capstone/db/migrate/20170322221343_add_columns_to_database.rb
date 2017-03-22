@@ -1,5 +1,7 @@
 class AddColumnsToDatabase < ActiveRecord::Migration[5.0]
   def change
-    add_column :name, :email, :password_digest
+    add_column :users, :name, :string
+    add_column :users, :email, :string
+    add_column :users, :password_digest, :string
   end
 end

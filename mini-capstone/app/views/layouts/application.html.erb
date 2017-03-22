@@ -27,9 +27,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li class="active"><a href="#">Hello, <%= user.id %> <span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="#">Hello, <%= User.name %> <span class="sr-only">(current)</span></a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
           <ul class="dropdown-menu">
             <li><a href="/recipes/new">Create a new recipe!</a></li>
             <li><a href="/recipes/#{user.id}/edit">Edit your recipes!</a></li>
