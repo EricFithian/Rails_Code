@@ -1,23 +1,22 @@
 class UsersController < ApplicationController
   def new
-    render 'index.html.erb'
+    render 'new.html.erb'
   end
 
   def create
     user = User.new(
-      username: params[:username],
+      name: params[:name],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
-      )
-
-    if user.save 
-      session[:user_id] = user.user_id
-      flash[:success] = "You have successfully signed up for Homemade Orders!"
+    )
+    if user.save
+      session[:user_id] = user.id
+      flash[:success] = 'Successfully created account!'
+      redirect_to '/'
     else
-      flash[:failure] = "Either your usename or password is incorrect :'("
+      flash[:warning] = 'Invalid email or password!'
+      redirect_to '/signup'
     end
-
-    redirect_to '/recipes'
   end
 end

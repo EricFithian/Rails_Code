@@ -10,12 +10,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(
-    title: params[:title],
-    chef: params[:chef],
-    ingredients: params[:ingredients],
-    directions: params[:directions],
-    prep_time: params[:prep_time],
-    price: params[:price]
+      title: params[:title],
+      chef: params[:chef],
+      ingredients: params[:ingredients],
+      directions: params[:directions],
+      prep_time: params[:prep_time],
+      price: params[:price]
     )
     redirect_to "/recipes/#{@recipe.id}"
   end
