@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(
+    @recipe = Recipe.create(
     title: params[:title],
     chef: params[:chef],
     ingredients: params[:ingredients],
@@ -17,7 +17,6 @@ class RecipesController < ApplicationController
     prep_time: params[:prep_time],
     price: params[:price]
     )
-    @recipe.save
     redirect_to "/recipes/#{@recipe.id}"
   end
 
@@ -37,6 +36,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-
+    @recipe = recipe.destroy
   end
 end
