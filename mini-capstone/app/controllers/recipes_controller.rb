@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
     if current_user
-      @recipes = current_user.recipes
+      @recipes = Recipe.all
       render 'index.html.erb'
     else
       redirect_to '/login'
