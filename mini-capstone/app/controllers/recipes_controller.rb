@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
-    render 'index.html.erb'
+    if current_user
+      @recipes = current_user.recipes
+      render 'index.html.erb'
+    else
+      redirect_to '/login'
+    end
   end
 
   def new
