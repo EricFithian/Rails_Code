@@ -56,13 +56,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- <div class="row">
-  <div class="col-6 col-md-4"> <%= Recipe.first %> </div>
-  <div class="col-6 col-md-4"><%= Recipe.second %></div>
-  <div class="col-6 col-md-4"><%= Recipe.third %></div>
-</div>
- -->
-    <%= yield %>
+<div class="container-fluid">
 
+<% flash.each do |name_of_class, message| %>
+  <div class="alert alert-<%= name_of_class %>" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= message %>
+<% end %>
+
+    <%= yield %>
+    </div>
   </body>
 </html>
