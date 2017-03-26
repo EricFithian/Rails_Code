@@ -20,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Homemade Orders!</a>
+      <a class="navbar-brand" href="/recipes">Homemade Orders!</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,12 +30,12 @@
           <li class="active"><a href="#">Hello, <%= User.name %> <span class="sr-only">(current)</span></a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
           <ul class="dropdown-menu">
             <li><a href="/recipes/new">Create a new recipe!</a></li>
-            <li><a href="/recipes/#{user.id}/edit">Edit your recipes!</a></li>
+            <li><a href="/recipes/#{@recipe.id}/edit">Edit your recipes!</a></li>
             <li><a href="/recipes/#{user.id}">Delete your recipes!</a></li>
           </ul>
+          <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
         </li>
         <% else %>
         <li class="active"><a href="/login">Log in <span class="sr-only">(current)</span></a></li>
@@ -46,9 +46,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search recipes! <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Price, low to high</a></li>
-            <li><a href="#">Price, high to low</a></li>
-            <li><a href="#">By chef</a></li>
+            <% Category.all.each do |recipe| %>
+              <li><a href="/recipes?category=<%= Category.all.name %>">See all <%= Category.all.name.pluralize %></a></li>
+            <% end %>
           </ul>
         </li>
       </ul>
@@ -59,11 +59,10 @@
 <div class="container-fluid">
 
 <% flash.each do |name_of_class, message| %>
-  <div class="alert alert-<%= name_of_class %>" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <%= message %>
+  <div class="alert alert-<%name_of_class%> alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  </div>
+  <%= message %>
 <% end %>
 
     <%= yield %>

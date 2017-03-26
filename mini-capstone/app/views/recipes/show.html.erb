@@ -1,4 +1,4 @@
-<p>Here's a recipe!</p>
+<p>Here's the recipe you wanted!</p>
 
   <h2>Title: <%= @recipe.title %></h2>
   <p>Chef: <%= @recipe.chef %></p>
@@ -6,3 +6,13 @@
   <p>Directions: <%= @recipe.directions %></p>
   <p>Prep Time: <%= @recipe.prep_time %></p>
   <p>Price: <%= @recipe.price %></p>
+  <br>
+  <div>
+    Quantity: 
+    <%= form_tag "/orders", method: :post do %>
+      <input type="text" name="quantity">
+      <input type="text" name="recipe_id" value="<%= @recipe.id %>">
+      <input type="text" name="recipe_price" value="<%= @recipe.price %>">      
+      <input type="submit" value="Buy now!">
+    <% end %>
+  </div>

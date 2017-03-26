@@ -2,6 +2,12 @@ class RecipesController < ApplicationController
   def index
     if current_user
       @recipes = Recipe.all
+      if params[:category]
+        @recipes = Category.find_by(name: params[:category]).recipes
+      end
+      # @categories = Category.all
+      # if params[:sort] == 'prep_time'
+      #   @recipes = params[:]
       render 'index.html.erb'
     else
       redirect_to '/login'
@@ -13,15 +19,22 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(
-      title: params[:title],
-      chef: params[:chef],
-      ingredients: params[:ingredients],
-      directions: params[:directions],
-      prep_time: params[:prep_time],
-      price: params[:price]
-    )
-    redirect_to "/recipes/#{@recipe.id}"
+    if current_user
+      @recipe = Recipe.create(
+        user_id: params[:user_id],
+        title: params[:title],
+        chef: params[:chef],
+        ingredients: params[:ingredients],
+        directions: params[:directions],
+        prep_time: params[:prep_time],
+        price: params[:price]
+      )
+      Rails.logger.info(@recipe.errors.inspect) 
+      flash[:sucess] = "You just created a recipe!"
+      redirect_to "/recipes/#{@recipe.id}"
+    else
+      redirect_to '/login'
+    end
   end
 
   def show
@@ -41,5 +54,6 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = recipe.destroy
+    redirect_to "/recipes/#{@recipe.id}"
   end
 end
