@@ -2,12 +2,9 @@ class RecipesController < ApplicationController
   def index
     if current_user
       @recipes = Recipe.all
-      if params[:category]
-        @recipes = Category.find_by(name: params[:category]).recipes
-      end
-      # @categories = Category.all
-      # if params[:sort] == 'prep_time'
-      #   @recipes = params[:]
+      # if params[:category]
+      #   @recipes = Category.find_by(name: params[:category]).recipes
+      # end
       render 'index.html.erb'
     else
       redirect_to '/login'

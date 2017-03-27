@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  has_many :recipes, through: :catgorized_recipe
+  belongs_to :user
+  has_many :recipies through: :categorized_recipe
 end

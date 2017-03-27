@@ -46,9 +46,6 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search recipes! <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <% Category.all.each do |recipe| %>
-              <li><a href="/recipes?category=<%= Category.all.name %>">See all <%= Category.all.name.pluralize %></a></li>
-            <% end %>
           </ul>
         </li>
       </ul>
