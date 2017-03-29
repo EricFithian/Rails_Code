@@ -1,1 +1,45 @@
-This works.
+<h1>Make a new recipe here!</h1>
+
+<%= form_tag "/carted_products", method: :post do %>
+  <div>
+    Title: 
+    <input type="text" name="title">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.id %>>
+  </div>
+
+  <div>
+    Chef: 
+    <input type="text" name="chef">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.chef %>>
+  </div>
+
+  <div>
+    Ingredients: 
+    <input type="text" name="ingredients">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.ingredients %>>
+  </div>
+
+  <div>
+    Directions: 
+    <input type="text" name="directions">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.directions %>>
+  </div>
+
+  <div>
+    Prep Time: 
+    <input type="text" name="prep_time">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.prep_time %>>
+  </div>
+  <div>
+    Price: 
+    <input type="text" name="price">
+    <input type="hidden" name="recipe_id" value=<%= @recipes.price %>>
+  </div>
+
+  <div>
+  <input type="submit" value="Make a new recipe!">
+  Quantity: 
+    <input type="text" name="price">
+  </div>
+  <input type="submit" value="Make a new recipe!">
+<% end %>

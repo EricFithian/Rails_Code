@@ -9,10 +9,10 @@
   <br>
   <div>
     Quantity: 
-    <%= form_tag "/orders", method: :post do %>
+    <%= form_tag "/carted_products", method: :post do %>
       <input type="text" name="quantity">
       <input type="text" name="recipe_id" value="<%= @recipe.id %>">
       <input type="text" name="recipe_price" value="<%= @recipe.price %>">      
-      <input type="submit" value="Buy now!">
+      <input type="submit" value="Add to cart!">
     <% end %>
   </div>
