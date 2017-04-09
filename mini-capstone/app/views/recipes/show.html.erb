@@ -8,6 +8,10 @@
   <p>Price: <%= @recipe.price %></p>
   <br>
   <div>
+
+  <% if current_user && current_user.admin #Person this belongs to %>
+    #Code saying that edit and delete buttons you need to add are only available if they're an admin (or the owner of the recipe)
+  <% end %>
     Quantity: 
     <%= form_tag "/carted_products", method: :post do %>
       <input type="text" name="quantity">

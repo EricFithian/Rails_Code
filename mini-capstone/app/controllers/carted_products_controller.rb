@@ -1,7 +1,8 @@
 class CartedProductsController < ApplicationController
+  before: authenticate_user! && authenticate_admin!
+
   def index
     @recipes = Recipe.all 
-    render 'index.html.erb'
   end
 
   def create

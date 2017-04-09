@@ -31,9 +31,12 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
+          authenticate_user!
             <li><a href="/recipes/new">Create a new recipe!</a></li>
             <li><a href="/recipes/#{@recipe.id}/edit">Edit your recipes!</a></li>
             <li><a href="/recipes/#{user.id}">Delete your recipes!</a></li>
+              <li><a href="/carted_products">Go to checkout!</a></li>
+            end
           </ul>
           <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
         </li>

@@ -1,0 +1,10 @@
+<p>Here is a form</p>
+
+<%= form_tag "/players", method: :post do %> 
+  First name: <input type="text" name="input_first_name">
+  Last name: <input type="text" name="input_last_name">
+  Average: <input type="text" name="input_average">
+  Salary: <input type="text" name="input_salary">
+  Phone number: <input type="text" name="input_phone_number">
+  <input type="submit" value="Create player!">
+<% end %>

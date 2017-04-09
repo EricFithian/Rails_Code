@@ -1,0 +1,9 @@
+
+
+<p> ID: <%= @player.id %> </p>
+<p> Average: <%= @player.average %> </p>
+<p> Salary: <%= @player.salary %> </p>
+<p> Phone number: <%= @player.phone_number %> </p>
+<p> First name: <%= @player.first_name %> </p>
+<p> Last name: <%= @player.last_name %> </p>
+<%= button_to "Fire this asshole", "/players/#{@player.id}", method: :delete %>

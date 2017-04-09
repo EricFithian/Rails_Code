@@ -1,0 +1,10 @@
+<p>Here is a form</p>
+
+<%= form_tag "/players/#{@player['id']}", method: :patch do %> 
+  First name: <input type="text" name="input_first_name" value = <%= @player['first_name'] %>>
+  Last name: <input type="text" name="input_last_name" value = <%= @player['last_name'] %>>
+  Average: <input type="text" name="input_average" value = <%= @player['average'] %>>
+  Salary: <input type="text" name="input_salary" value = <%= @player['salary'] %>>
+  Phone number: <input type="text" name="input_phone_number" value = <%= @player['phone_number'] %>>
+  <input type="submit" value="Update player!">
+<% end %>

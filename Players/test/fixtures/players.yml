@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  position: MyString
+  phone_number: MyString
+  average: 1
+  salary: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  position: MyString
+  phone_number: MyString
+  average: 1
+  salary: 1

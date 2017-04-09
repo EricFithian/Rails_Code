@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = current_user.id
+      session[:user_id] = user 
       flash[:success] = 'You have successfully logged into this great site!'
       redirect_to '/recipes'
     else
