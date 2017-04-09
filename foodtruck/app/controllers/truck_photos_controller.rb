@@ -1,0 +1,2 @@
+class TruckPhotosController < ApplicationController
+end

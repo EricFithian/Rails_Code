@@ -1,0 +1,25 @@
+{
+    "rules": {
+        "indent": [1, 2],
+        "linebreak-style": [1, "unix"],
+        "semi": [1, "always"],
+        "eqeqeq": [1, "smart"],
+        "camelcase": 1,
+        "curly": 1,
+        "brace-style": [1, "1tbs"],
+        "space-before-function-paren": [1, "never"],
+        "array-bracket-spacing": [1, "never"],
+        "space-before-blocks": [1, "always"],
+        "keyword-spacing": ["error", {"before": true, "after": true, "overrides": {}}],
+        "no-spaced-func": 1,
+        "space-infix-ops": [1, {"int32Hint": false}],
+        "no-console": 0,
+        "no-unused-vars": 0
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
+}

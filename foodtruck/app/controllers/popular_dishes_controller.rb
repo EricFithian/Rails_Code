@@ -1,0 +1,2 @@
+class PopularDishesController < ApplicationController
+end

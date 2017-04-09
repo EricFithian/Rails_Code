@@ -1,0 +1,2 @@
+class DishPhoto < ApplicationRecord
+end

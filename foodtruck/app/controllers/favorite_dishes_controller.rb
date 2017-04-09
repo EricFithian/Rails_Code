@@ -1,0 +1,2 @@
+class FavoriteDishesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class TruckPhoto < ApplicationRecord
+end

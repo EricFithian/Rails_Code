@@ -1,0 +1,2 @@
+class DishPhotosController < ApplicationController
+end

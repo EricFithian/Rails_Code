@@ -1,0 +1,2 @@
+class CartedFood < ApplicationRecord
+end

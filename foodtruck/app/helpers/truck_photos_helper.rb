@@ -1,0 +1,2 @@
+module TruckPhotosHelper
+end

@@ -19,4 +19,4 @@ class Player
     all_players = Unirest.get("#{ENV['API_Route']}/players").body
     players_objects = []
   end
-end
+

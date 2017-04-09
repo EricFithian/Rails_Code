@@ -1,0 +1,2 @@
+class PopularDish < ApplicationRecord
+end

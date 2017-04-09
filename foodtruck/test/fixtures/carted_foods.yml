@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  truck_id: MyString
+  order_id: MyString
+  quantity: 1
+  special_requests: MyString
+  status: MyString
+
+two:
+  user_id: MyString
+  truck_id: MyString
+  order_id: MyString
+  quantity: 1
+  special_requests: MyString
+  status: MyString
