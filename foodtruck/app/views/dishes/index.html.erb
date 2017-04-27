@@ -1,1 +1,21 @@
-This site works! :) 
+<h1>See all the delicious offerings from nearby food trucks!</h1>
+
+<% @dishes.each_slice(3) do |three_dishes|%>
+  <div class="row">
+    <% three_dishes.each do |dish| %>
+      <div class="col-md-4">
+        <div class="well">
+          <h3>Name: <%= dish.name %></h3>
+          <p>Category: <%= dish.category %></p>
+          <p>Tags: <%= dish.tags %></p>
+          <p>Truck: <%= dish.truck_id %></p>
+          <p>Prep time: <%= dish.time %></p>
+          <p>Price: <%= dish.price %></p>
+          <a href="/dishes/<%= dish.id %>">Check it out!</a>
+          <hr>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

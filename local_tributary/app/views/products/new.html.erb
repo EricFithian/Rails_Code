@@ -1,0 +1,29 @@
+<% if current_user %>
+
+  <h1>Add your products here!</h1>
+
+  <%= form_tag "/products", method: :post do %>
+    <div>
+      Name: 
+      <input type="text" name="name">
+    </div>
+    <div>
+      Category: 
+      <input type="text" name="category">
+    </div>
+    <div>
+      Tags: 
+      <input type="text" name="tags">
+    </div>
+    <div>
+      Delivery Time: 
+      <input type="text" name="delivery_time">
+    </div>
+    <div>
+      Price: 
+      <input type="text" name="price">
+    </div>
+    <input type="submit" value="Add your product!">
+  <% end %>
+
+<% end %>

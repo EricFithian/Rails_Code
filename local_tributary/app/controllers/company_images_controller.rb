@@ -1,0 +1,2 @@
+class CompanyImagesController < ApplicationController
+end

@@ -1,0 +1,3 @@
+class PopularProductsController < ApplicationController
+
+end

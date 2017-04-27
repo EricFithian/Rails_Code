@@ -1,0 +1,21 @@
+<h1>See all the amazing local businesses in your area!</h1>
+
+<% @companies.each_slice(3) do |three_companies|%>
+  <div class="row">
+    <% three_companies.each do |company| %>
+      <div class="col-md-4">
+        <div class="well">
+          <h3>Name: <%= company.name %></h3>
+          <p>Company description: <%= company.company_description %></p>
+          <p>Website: <%= company.website %></p>
+          <p>Address: <%= company.address %></p>
+          <p>Delivery radius: <%= company.deliver_radius %></p>
+          <p>Rating: <%= company.rating %></p>
+          <p>Phone number: <%= company.phone_number %></p>
+          <p>Locations: <%= company.total_locations %></p>
+          <hr>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+<script type="text/javascript">
+  // function sayHello() {
+  //   console.log("Say hello");
+  // }
+
+  // function sum(num1, num2) {
+  //   return num1 + num2;
+  // }
+
+  // console.log(sum(4, 8));
+
+  // var numbersArray = [4, 8, 9, 18, 43];
+
+  // function average(numbersArray) {
+  //   var sum = 0;
+  //   for (var i = 0; i < numbersArray.length; i++)
+  //     sum = sum + numbersArray[i];
+  //     console.log(sum / numbersArray.length);
+  // }
+
+  // console.log(average);
+
+  var book1 = {
+    title: "The professional",
+    pages: 350,
+    genre: "Self improvement"
+  };
+
+  var book2 = {
+    title: "Harry Pothead and the Sorcer is Stoned",
+    pages: 300,
+    genre: "Fiction"
+  };
+
+  // var bookArry = [];
+
+  // bookArry.push(book1);
+  // bookArry.push(book2);
+
+// console.log(bookArry);
+
+
+  function Book(inputTitle, inputPages, inputGenre) {
+    this.title = inputTitle;
+    this.pages = inputPages;
+    this.genre = inputGenre;
+    this.printDetails = function() {
+      return this.title + " is a " + this.pages + " page book in the " + this.genre + " genre.";
+    }
+  }
+
+  var book = Book("Harry Pothead", 220, "Stoners");
+
+  console.log(book.title);
+</script>
+

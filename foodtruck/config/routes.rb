@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/foodtruck' => 'dishes#index'
+  get '/dishes' => 'dishes#index'
+  get '/dishes/:id' => 'dishes#show'
   
 end

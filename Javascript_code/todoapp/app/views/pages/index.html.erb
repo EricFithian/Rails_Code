@@ -1,0 +1,13 @@
+<h1>These are your tasks!</h1>
+
+<div id="app">
+  <input v-model="tasks[tasks.length -1]">
+  <div v-for="task in tasks">
+    <p>{{ task }}</p>
+    <hr>
+  </div>
+
+  <input v-model="newTask">
+  <button v-on:click="addTask()" newTask = ''>Add the new task!</button>
+</div>
+

@@ -1,0 +1,60 @@
+<h1>Signup your company here!</h1>
+  <%= form_tag "/company", method: :post do  %>
+  <div>
+    Name:
+    <input type="text" name="name">
+  </div>
+
+  <div>
+    Address:
+    <input type="text" name="address">
+  </div>
+
+  <div>
+    Image description:
+    <input type="text" name="image_description">
+  </div>
+
+  <div>
+    Company description:
+    <input type="text" name="company_description">
+  </div>
+
+  <div>
+    Email:
+    <input type="text" name="email">
+  </div>
+
+  <div>
+    Phone number:
+    <input type="text" name="phone_number">
+  </div>
+
+  <div>
+    Delivery radius:
+    <input type="text" name="deliver_radius">
+  </div>
+
+
+  <div>
+    Website:
+    <input type="text" name="website">
+  </div>
+
+  <div>
+    Number of locations:
+    <input type="text" name="total_locations">
+  </div>
+
+  <div>
+    Password:
+    <input type="password" name="password">
+  </div>
+
+  <div>
+    Confirm Password:
+    <input type="password" name="password_confirmation">
+  </div>
+
+  <input type="submit" value="Submit">
+<% end %>
