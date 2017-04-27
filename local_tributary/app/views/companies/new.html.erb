@@ -1,5 +1,5 @@
 <h1>Signup your company here!</h1>
-  <%= form_tag "/company", method: :post do  %>
+  <%= form_tag "/companies", method: :post do  %>
   <div>
     Name:
     <input type="text" name="name">
@@ -48,12 +48,12 @@
 
   <div>
     Password:
-    <input type="password" name="password">
+    <input type="text" name="password">
   </div>
 
   <div>
     Confirm Password:
-    <input type="password" name="password_confirmation">
+    <input type="text" name="password_confirmation">
   </div>
 
   <input type="submit" value="Submit">
