@@ -1,0 +1,21 @@
+<h1>Players#index</h1>
+<p>Find me in app/views/players/index.html.erb</p>
+
+<div id="app">
+  The number of players is: {{ countOfPlayers() }}
+  <div v-for="player in players" v-if="isValidPlayer(player)">
+    <h2 v-on:click="toggleBioVisible(player)">{{ player.first_name }}</h2>
+    <h2 v-on:click="toggleFirstNameVisible(player)">{{ player.firstName }}</h2>
+    <h2 v-on:click="toggleBioVisible(player)">{{ player.name }}</h2>    
+    <h3 v-bind:class="{strike: !player.bioVisible}">{{ player.bio }}</h3>
+    <h3>{{ player.infoVisible }}</h3>
+    <button v-on:click="removePlayer(player)">Remove a player</button>
+  </div>
+
+  <p v-for="error in errors">{{ error }}</p>
+  <input v-model="newPlayerName">
+  <input v-model="newPlayerBio">
+  <button v-on:click="addPlayer()">Add a new player</button>
+
+</div>
+<!-- Note: make sure to update to align this with the schema. -->
