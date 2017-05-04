@@ -1,0 +1,23 @@
+<% current_user.carted_products.each do |carted_product| %> 
+
+  <p> Quantity:
+    <%= carted_product.quantity %>
+  </p>
+
+  <p>Name: 
+    <%= carted_product.product.name %>
+  </p>
+
+  <p>
+    Status: Really cool
+  </p>
+
+  <hr>
+
+<% end %>
+
+<div>
+    <%= form_tag "/orders", method: :post do %>
+      <input type="submit" value="Finalize your order!">
+      <% end %>
+</div>
