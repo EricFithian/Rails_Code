@@ -7,7 +7,11 @@ class UsersController < ApplicationController
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      age: params[:age],
+      adddress: params[:adddress],
+      zip_code: params[:zip_code],
+      phone_number: params[:phone_number]
     )
     if user.save  
       session[:user_id] = user.id

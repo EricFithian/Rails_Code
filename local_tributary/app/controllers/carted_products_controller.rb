@@ -15,6 +15,6 @@ class CartedProductsController < ApplicationController
         order_id: "carted"
       )
     flash[:sucess] = "You just successfully ordered!"
-    redirect_to "/carted_products"
+    redirect_to "/products"
   end
 end
