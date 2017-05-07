@@ -1,23 +1,20 @@
-<% current_user.carted_products.each do |carted_product| %> 
+Here is your cart!
 
-  <p> Quantity:
-    <%= carted_product.quantity %>
-  </p>
+<% @carted_products.each do |carted_product| %>
 
-  <p>Name: 
-    <%= carted_product.product.name %>
-  </p>
+  <p><%= carted_product.product.name %></p>
 
-  <p>
-    Status: Really cool
-  </p>
+  <p><%= carted_product.quantity %></p>
 
   <hr>
 
+  <%= link_to "Remove this product", "/carted_products/#{carted_product.id}", method: :delete %>
+
 <% end %>
 
-<div>
-    <%= form_tag "/orders", method: :post do %>
-      <input type="submit" value="Finalize your order!">
-      <% end %>
-</div>
+
+<%= form_tag "/orders", method: :post do %>
+
+  <input type="submit" value="Buy now!">
+
+<% end %>

@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :companies, through: :ratings
   has_many :orders
   has_many :favorite_products
+  has_many :carted_products
 end

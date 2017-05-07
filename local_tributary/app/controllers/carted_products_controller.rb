@@ -1,20 +1,29 @@
 class CartedProductsController < ApplicationController
-  before: authenticate_user! && authenticate_admin!
+  before_action :authenticate_user!
 
   def index
-    @recipes = Product.all 
+    if current_user.carted_products.where(status: 'carted').count == 0
+      redirect_to "/products"
+    else
+      @carted_products = current_user.carted_products.where(status: 'carted')
+      render 'index.html.erb'
+    end
   end
 
   def create
-    @recipes = Product.find_by(id: params['product_id'])
-
-    @carted_products = CartedProduct.create(
-        quantity: params['quantity'],
-        user_id: current_user.id,
-        recipe_id: params[:product_id],
-        order_id: "carted"
+    carted_product = CartedProduct.new!(
+      user_id: current_user.id,
+      product_id: params[:product_id],
+      quantity: params[:quantity],
+      status: 'carted'
       )
-    flash[:sucess] = "You just successfully ordered!"
-    redirect_to "/products"
+    carted_product.save
+    redirect_to "/carted_products"
+  end
+
+  def destroy
+    carted_product = CartedProduct.find_by(id: params[:id])
+    carted_product.update(status: 'removed')
+    redirect_to '/carted_products'
   end
 end

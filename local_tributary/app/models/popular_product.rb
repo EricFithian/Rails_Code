@@ -1,4 +1,4 @@
 class PopularProduct < ApplicationRecord
-  belongs_to :carted_product
-  belongs_to :product 
+  belongs_to :cart
+  belongs_to :product
 end

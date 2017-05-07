@@ -9,14 +9,13 @@ class UsersController < ApplicationController
       password: params[:password],
       password_confirmation: params[:password_confirmation],
       age: params[:age],
-      adddress: params[:adddress],
       zip_code: params[:zip_code],
       phone_number: params[:phone_number]
     )
     if user.save  
       session[:user_id] = user.id
       flash[:success] = 'You have successfully created an account!'
-      redirect_to "/recipes"
+      redirect_to "/products"
     else
       render "new.html.erb"
     end
