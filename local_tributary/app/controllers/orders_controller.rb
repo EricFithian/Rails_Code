@@ -1,45 +1,18 @@
 class OrdersController < ApplicationController
-  before: authenticate_user! && authenticate_admin!
-
-  def index
-    @products = Product.all
-    render 'index.html.erb'
-  end
-
+  before_action :authenticate_user!
   def create
-    @order = Product.find_by(id: params['product_id'])
-
-
-
-    @orders = Order.create(
-        user_id: current_user.id
-      )
-
-    if @orders
-      @carted_products = CartedProducts.where(id: @order.id)
-    end
-    
-
-    # @subtotal = 0
-    # current_user.carted_products.each do |carted_order|
-    #   if carted_order.quantity 
-    #     @subtotal += carted_order.quantity * carted_order.recipe.price
-    #   end
-    # end
-
-    # @tax = 0
-    # current_user.carted_products.each do |carted_order|
-    #   if carted_order.quantity 
-    #     @tax += carted_order.quantity * carted_order.recipe.price * 0.0875
-    #   end
-    # end
-
-    # @total = @tax + @subtotal
-
-    redirect_to "/orders"
+    carted_products = current_user.carted_products.where(status: 'carted')
+    order = Order.new(
+      user_id: current_user.id
+    )
+    order.save
+    carted_products.update_all(status: 'purchased', order_id: order.id)
+    order.calculate_totals
+    redirect_to "/orders/#{order.id}"
   end
 
   def show
     @order = Order.find_by(id: params[:id])
+    render 'show.html.erb'
   end
 end

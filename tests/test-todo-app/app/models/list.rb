@@ -7,11 +7,14 @@
   end
 
   def total_duration
-    total = 0
-    tasks.each do |task|
-      total += task.duration
-    end
-    return total
+    return 
+    # return (Task.first + Task.last)
+
+    # total = 0
+    # tasks.each do |task|
+    #   total += task.duration
+    # end
+    # return total
   end
 
  def incomplete_tasks
