@@ -1,20 +1,21 @@
-<h1>See all the amazing local businesses in your area!</h1>
+<h1>See all the amazing local prodcuts in your area!</h1>
 
 <% @companies.each_slice(3) do |three_companies|%>
   <div class="row">
     <% three_companies.each do |company| %>
       <div class="col-md-4">
         <div class="well">
-          <h3>Name: <%= company.name %></h3>
-          <p>Company description: <%= company.company_description %></p>
-          <p>Website: <%= company.website %></p>
-          <p>Address: <%= company.address %></p>
-          <p>Delivery radius: <%= company.deliver_radius %></p>
-          <p>Rating: <%= company.rating %></p>
-          <p>Phone number: <%= company.phone_number %></p>
-          <p>Locations: <%= company.total_locations %></p>
+        <div>
+            <%= image_tag ("logos/logo.png, width: 150px") %>
+        </div>
+          <h3>Company: <%= company.company.name %> </h3>
+          <p>Name: <%= company.name %></p>
+          <p>Delivery Time: <%= company.delivery_time %> </p>
+          <p>Delivery Radius: <%= company.company.deliver_radius %> feet </p>
+          <p>Category: <%= company.category %></p>
+          <p>Price: <%= company.price %></p>
           <hr>
-          <a href="/products/<%= company.id %>">Check out our inventory!</a>
+          <a href="/products/<%= company.id %>">Purchase this product!</a>
         </div>
       </div>
     <% end %>
