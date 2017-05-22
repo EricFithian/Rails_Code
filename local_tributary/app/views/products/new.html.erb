@@ -1,6 +1,6 @@
 <h1>Add your products here!</h1>
 
-<%= form_tag "/products", method: :post do %>
+<%= form_tag "/products", :html => { :multipart => true }, method: :post do %>
 
   <div>
     Name: 
@@ -27,11 +27,7 @@
     <input type="text" name="price">
   </div>
 
-  <div>
-    Company: 
-    <input type="text" name="company">
-  </div>
-
   <input type="submit" value="Add your product!">
+
 
 <% end %>

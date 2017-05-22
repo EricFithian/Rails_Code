@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519005110) do
+ActiveRecord::Schema.define(version: 20170520232040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,11 +93,19 @@ ActiveRecord::Schema.define(version: 20170519005110) do
     t.string   "name"
     t.string   "category"
     t.string   "tags"
-    t.decimal  "price",         precision: 5, scale: 2
+    t.decimal  "price",                precision: 5, scale: 2
     t.integer  "company_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "delivery_time"
+    t.string   "product_file_name"
+    t.string   "product_content_type"
+    t.integer  "product_file_size"
+    t.datetime "product_updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "ratings", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_company_admin!, except: [:index, :show]
+  before_action :authenticate_company_admin!, except: [:index, :new, :create, :show]
 
   def index
     if params[:category]
@@ -16,8 +16,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(
-      user_id: current_user,
+    @product = Product.new(
+      company_id: current_company,
       name: params[:name],
       category: params[:category],
       tags: params[:tags],
@@ -26,13 +26,16 @@ class ProductsController < ApplicationController
       price: params[:price]
     )
 
-    image1 = ProductImage.new(url: params[:url])
-
-    if product.save && image1.save
+    if @product.save
       flash[:success] = "Product Created"
       redirect_to "/products/#{@product.id}"
+      if @product.errors.any? 
+        @products.errors.full_messages.each do |message|
+          "Error: #{message}"
+        end
+      end
     else
-      @companies = Company.all
+      @product.errors.full_messages
       render 'new.html.erb'
     end
   end
