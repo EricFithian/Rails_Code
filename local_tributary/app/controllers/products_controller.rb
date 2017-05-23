@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     if params[:category]
-      @image = "http://i.imgur.com/fX2nHnM.jpg"
       @products = Category.find_by(name: params[:category]).products
       @companies = Category.find_by(name: params[:category]).companies
     else
@@ -13,29 +12,29 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
+    p params[:name]
     @product = Product.new(
-      company_id: current_company,
-      name: params[:name],
-      category: params[:category],
-      tags: params[:tags],
-      company_id: params[:company_id],
-      delivery_time: params[:delivery_time],
-      price: params[:price]
+      company_id: current_company.id,
+      name: params[:product][:name],
+      category: params[:product][:category],
+      tags: params[:product][:tags],
+      delivery_time: params[:product][:delivery_time],
+      price: params[:product][:price]
+      photo_file_name: params[:product][:photo_file_name]
+      photo_content_type: params[:product][:photo_content_type]
+      photo_file_size: params[:product][:photo_file_size]
     )
 
     if @product.save
       flash[:success] = "Product Created"
       redirect_to "/products/#{@product.id}"
-      if @product.errors.any? 
-        @products.errors.full_messages.each do |message|
-          "Error: #{message}"
-        end
-      end
     else
-      @product.errors.full_messages
+      p @product.errors.full_messages
+      p @product
       render 'new.html.erb'
     end
   end
@@ -61,6 +60,10 @@ class ProductsController < ApplicationController
     else
       render 'edit.html.erb'
     end
+  end
+
+  def product_params
+    params.require(:product).permit(:name, pictures: [])
   end
 
   def destroy

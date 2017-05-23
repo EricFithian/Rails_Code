@@ -9,5 +9,5 @@ class Product < ApplicationRecord
   has_many :carted_products, through: :popular_products
   has_many :ratings
   has_many :users, through: :ratings
-  has_attached_file :photo
+  validates :name, presence: true
 end
