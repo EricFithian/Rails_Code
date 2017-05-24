@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   belongs_to :company
   has_many :favorite_products
   has_many :users, through: :favorite_products

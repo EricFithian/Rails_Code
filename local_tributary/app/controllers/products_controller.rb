@@ -23,10 +23,8 @@ class ProductsController < ApplicationController
       category: params[:product][:category],
       tags: params[:product][:tags],
       delivery_time: params[:product][:delivery_time],
-      price: params[:product][:price]
-      photo_file_name: params[:product][:photo_file_name]
-      photo_content_type: params[:product][:photo_content_type]
-      photo_file_size: params[:product][:photo_file_size]
+      price: params[:product][:price],
+      pictures: params[:product][:pictures]
     )
 
     if @product.save
@@ -71,6 +69,6 @@ class ProductsController < ApplicationController
     @product.destroy
 
     flash[:warning] = "Product Created"
-    redirect_to "/"
+    redirect_to "/products"
   end
 end

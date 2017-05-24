@@ -6,14 +6,38 @@ class OrdersController < ApplicationController
     order = Order.new(
       user_id: current_user.id
     )
-    order.save
-    carted_products.update_all(status: 'purchased', order_id: order.id)
-    order.calculate_totals
-    redirect_to "/orders/#{order.id}"
+    if order.save
+      carted_products.update_all(status: 'purchased', order_id: order.id)
+      redirect_to "/orders/#{order.id}"
+    else
+      p order.errors.full_messages
+    end
   end
 
   def show
     @order = Order.find_by(id: params[:id])
+    @subtotal = 0
+    current_user.carted_products.each do |carted_order|
+      if carted_order.quantity 
+        @subtotal += carted_order.quantity.to_i * carted_order.product.price.round(2)
+      end
+    end
+
+    @tax = 0
+    current_user.carted_products.each do |carted_order|
+      if carted_order.quantity 
+        @tax += carted_order.quantity * carted_order.product.price * 0.0875
+      end
+    end
+
+    @total = @tax + @subtotal
+
+
+    p @subtotal
+    p @tax
+    p @total
+    @delivery = @time + 
+    @time = (Time.now.strftime("%I:%M"))
     render 'show.html.erb'
   end
 end

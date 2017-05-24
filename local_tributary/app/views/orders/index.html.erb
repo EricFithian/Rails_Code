@@ -1,21 +1,21 @@
-# <% current_user.carted_products.each do |carted_order| %> 
+<% current_user.carted_products.each do |carted_order| %> 
 
-#   <p> Quantity:
-#     <%= carted_order.quantity %>
-#   </p>
+  <p> Quantity:
+    <%= carted_order.quantity %>
+  </p>
 
-#   <p>Title: 
-#     <%= carted_order.product.title %>
-#   </p>
+  <p>Title: 
+    <%= carted_order.product.name %>
+  </p>
 
-#   <p>
-#     Status: Pending
-#   </p>
+  <p>
+    Status: Pending
+  </p>
 
-#   <hr>
+  <hr>
 
-# <% end %>
+<% end %>
 
-# <p>Subtotal: $<%= @subtotal.round(2) %></p>
-# <p>Tax: $<%= @tax.round(2) %></p>
-# <p>Total: $<%= @total.round(2) %></p>
+<p>Subtotal: $<%= @subtotal.round(2) %></p>
+<p>Tax: $<%= @tax.round(2) %></p>
+<p>Total: $<%= @total.round(2) %></p>

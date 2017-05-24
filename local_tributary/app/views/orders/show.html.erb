@@ -1,0 +1,15 @@
+Here is your order!
+<p>Order id: <%= @order.id + 235231 %></p>
+
+<p>Order subtotal: <%= @subtotal.round(2)%> </p>
+<p>Order tax: <%= @tax.round(2)%> </p>
+<p>Order total: <%= @total.round(2)%> </p>
+<p>Order email address: <%= @order.user.email %></p>
+
+<p>Delivery By: <%= @delivery %></p>
+
+<% @order.carted_products.each do |carted_product| %>
+  <p>Product: <%= carted_product.product.name %> </p>
+  <p>Product quantity: <%= carted_product.quantity %> </p>
+  <p>Delivered By: <%= @delivery %> </p>
+<% end %>

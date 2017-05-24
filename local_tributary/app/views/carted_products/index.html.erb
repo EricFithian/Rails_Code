@@ -2,13 +2,19 @@ Here is your cart!
 
 <% @carted_products.each do |carted_product| %>
 
-  <p><%= carted_product.product.name %></p>
+  <h2> Product: <%= carted_product.product.name %></h2>
 
-  <p><%= carted_product.quantity %></p>
+  <p>Company: <%= carted_product.product.company.name %> </p>
 
-  <hr>
+  <p>Quantity: <%= carted_product.quantity %></p>
+
+  <p>Delivery Time: <%= carted_product.product.delivery_time %> </p>
+
+  <p>Category: <%= carted_product.product.category %> </p>
 
   <%= link_to "Remove this product", "/carted_products/#{carted_product.id}", method: :delete %>
+  
+  <hr>
 
 <% end %>
 

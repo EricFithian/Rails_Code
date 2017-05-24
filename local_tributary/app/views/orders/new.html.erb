@@ -1,39 +1,26 @@
-<h1>Order a new product <!-- here!</h1>
+<h1>Order a new product here! </h1>
 
-<%= form_tag "/carted_products", method: :post do %>
-  <div>
-    Name: 
+  Name: 
     <input type="text" name="name">
-    <input type="hidden" name="recipe_id" value=<%= @product.id %>>
+    <input type="hidden" name="recipe_id" value=<%= @products.name %>>
   </div>
 
   <div>
     Category: 
     <input type="text" name="category">
-    <input type="hidden" name="recipe_id" value=<%= @product.category %>>
+    <input type="hidden" name="recipe_id" value=<%= @products.tags %>>
   </div>
 
   <div>
-    Ingredients: 
-    <input type="text" name="ingredients">
-    <input type="hidden" name="recipe_id" value=<%= @product.ingredients %>>
+    Tags: 
+    <input type="text" name="tags">
+    <input type="hidden" name="recipe_id" value=<%= @products.tags %>>
   </div>
 
-  <div>
-    Directions: 
-    <input type="text" name="directions">
-    <input type="hidden" name="recipe_id" value=<%= @product.directions %>>
-  </div>
-
-  <div>
-    Prep Time: 
-    <input type="text" name="prep_time">
-    <input type="hidden" name="recipe_id" value=<%= @product.prep_time %>>
-  </div>
   <div>
     Price: 
     <input type="text" name="price">
-    <input type="hidden" name="recipe_id" value=<%= @product.price %>>
+    <input type="hidden" name="recipe_id" value=<%= @products.price %>>
   </div>
 
   <div>
@@ -42,4 +29,4 @@
     <input type="text" name="price">
   </div>
   <input type="submit" value="Make a new recipe!">
-<% end %> -->
+<% end %>
