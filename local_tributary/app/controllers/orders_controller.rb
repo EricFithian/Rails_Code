@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     @subtotal = 0
     current_user.carted_products.each do |carted_order|
       if carted_order.quantity 
-        @subtotal += carted_order.quantity.to_i * carted_order.product.price.round(2)
+        @subtotal += carted_order.quantity.to_i * carted_order.product.price
       end
     end
 
@@ -36,8 +36,7 @@ class OrdersController < ApplicationController
     p @subtotal
     p @tax
     p @total
-    @delivery = @time + 
-    @time = (Time.now.strftime("%I:%M"))
+    @time = Time.now + 30.minutes
     render 'show.html.erb'
   end
 end

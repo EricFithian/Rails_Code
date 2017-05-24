@@ -1,15 +1,17 @@
-Here is your order!
-<p>Order id: <%= @order.id + 235231 %></p>
-
-<p>Order subtotal: <%= @subtotal.round(2)%> </p>
-<p>Order tax: <%= @tax.round(2)%> </p>
-<p>Order total: <%= @total.round(2)%> </p>
-<p>Order email address: <%= @order.user.email %></p>
-
-<p>Delivery By: <%= @delivery %></p>
+<h4> Here is your order! </h4>
+<h6>Order id: <%= @order.id + 2352318 %></h6>
 
 <% @order.carted_products.each do |carted_product| %>
-  <p>Product: <%= carted_product.product.name %> </p>
+  <h4>Product: <%= carted_product.product.name %> </h4>
   <p>Product quantity: <%= carted_product.quantity %> </p>
-  <p>Delivered By: <%= @delivery %> </p>
+  <p>Delivered By: <%= @time %> </p>
 <% end %>
+
+<h5>Order subtotal: <%= @subtotal.round(2)%> </h5>
+<h5>Order tax: <%= @tax.round(2)%> </h5>
+<h4>Order total: <%= @total.round(2)%> </h4>
+
+<h4>Delivery By: <%= @time.strftime("%I:%M") %></h4>
+
+<p>A copy of this receipt will be sent to you at <%= @order.user.email %></p>
+
