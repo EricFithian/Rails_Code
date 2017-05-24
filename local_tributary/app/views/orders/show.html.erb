@@ -4,7 +4,6 @@
 <% @order.carted_products.each do |carted_product| %>
   <h4>Product: <%= carted_product.product.name %> </h4>
   <p>Product quantity: <%= carted_product.quantity %> </p>
-  <p>Delivered By: <%= @time %> </p>
 <% end %>
 
 <h5>Order subtotal: <%= @subtotal.round(2)%> </h5>

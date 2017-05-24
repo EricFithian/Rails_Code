@@ -24,11 +24,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-      <% if current_user || current_company %>
+      <% if current_user %>
         <li class="active"><a href="#">Welcome!<span class="sr-only">(current)</span></a></li>
-          <li><a href="/carted_products">Go to checkout!</a></li>
-          <li><a href="/products/new">Create a new product!</a></li>
-          <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
+        <li><a href="/carted_products">Go to checkout!</a></li>
+        <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
+      <% elsif current_company %> 
+        <li class="active"><a href="#">Welcome!<span class="sr-only">(current)</span></a></li>
+        <li><a href="/products/new">Create a new product!</a></li>
+        <li class="active"><a href="/logout">Log out <span class="sr-only">(current)</span></a></li>
       <% else %>
         <li><a href="/login">Login</a></li>
         <li><a href="/signup">User signup</a></li>
