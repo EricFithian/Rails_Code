@@ -9,10 +9,10 @@
         </div>
           <h3>Company: <%= company.company.name %> </h3>
           <p>Name: <%= company.name %></p>
-          <p>Delivery Time: <%= company.delivery_time %> </p>
+          <p>Delivery Time: <%= company.delivery_time %> minutes </p>
           <p>Delivery Radius: <%= company.company.deliver_radius %> feet </p>
           <p>Category: <%= company.category %></p>
-          <p>Price: <%= company.price %></p>
+          <p>Price: $<%= company.price %></p>
           <hr>
           <a href="/products/<%= company.id %>">Purchase this product!</a>
         </div>

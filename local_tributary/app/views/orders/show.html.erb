@@ -10,7 +10,7 @@
 <h5>Order tax: <%= @tax.round(2)%> </h5>
 <h4>Order total: <%= @total.round(2)%> </h4>
 
-<h4>Delivery By: <%= @time.strftime("%I:%M") %></h4>
+<h4>Delivery By: <%= @time.strftime("%I:%M") %> PM</h4>
 
 <p>A copy of this receipt will be sent to you at <%= @order.user.email %></p>
 

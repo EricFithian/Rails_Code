@@ -26,11 +26,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:user_id] = nil && session[:company_id] = nil
+    if session[:user_id] = nil
       flash[:success] = "You have successfully logged out!"
       redirect_to '/login'
-    else 
-      current_user.session.destroy || current_company.session.destroy
+    else
+      redirect_to '/products/4'
     end
   end
 end
