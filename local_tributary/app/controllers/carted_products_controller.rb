@@ -11,7 +11,7 @@ class CartedProductsController < ApplicationController
 
     @tax = 0
     current_user.carted_products.each do |carted_order|
-      if carted_order.quantity 
+      if carted_order.quantity && carted_order.status = 'carted'
         @tax += carted_order.quantity * carted_order.product.price * 0.0875
       end
     end

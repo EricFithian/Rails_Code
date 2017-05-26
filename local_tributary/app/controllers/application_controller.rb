@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :all_categories
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    @current_user ||= session[:current_user_id] && User.find_by_id(session[:current_user_id])
   end
   helper_method :current_user
 
@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_company
 
+
+  def authenticate_user!
+    redirect_to '/login' unless current_user
+  end
+  helper_method :authenticate_company
+
   def authenticate_company_admin!
     redirect_to '/products' unless current_company && current_company.admin
   end
@@ -32,5 +38,4 @@ class ApplicationController < ActionController::Base
     current_user.carted_products.where(status: 'carted').length
   end
   helper_method :get_cart_count
-
 end
