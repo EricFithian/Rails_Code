@@ -18,14 +18,14 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params[:id])
     @subtotal = 0
     current_user.carted_products.each do |carted_order|
-      if carted_order.quantity && carted_order.status = 'carted'
+      if carted_order.quantity > 0 && carted_order.status == 'carted'
         @subtotal += carted_order.quantity.to_i * carted_order.product.price
       end
     end
 
     @tax = 0
     current_user.carted_products.each do |carted_order|
-      if carted_order.quantity && carted_order.status = 'carted'
+      if carted_order.quantity > 0 && carted_order.status == 'carted'
         @tax += carted_order.quantity * carted_order.product.price * 0.0875
       end
     end
