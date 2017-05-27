@@ -36,7 +36,9 @@ class OrdersController < ApplicationController
     p @subtotal
     p @tax
     p @total
-    @time = Time.now + 30.minutes
+    @time = Time.now 
+    @delivery = order.minutes
+
     render 'show.html.erb'
   end
 end
