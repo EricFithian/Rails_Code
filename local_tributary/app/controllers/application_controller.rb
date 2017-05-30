@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_company
 
-
   def authenticate_user!
     redirect_to '/login' unless current_user
   end
