@@ -1,5 +1,10 @@
 class CompaniesController < ApplicationController
   def index
+    if 
+      @products = Category.find_by(name: params[:category]).products
+    else
+      @products = Product.all
+    end
   end
 
   def new

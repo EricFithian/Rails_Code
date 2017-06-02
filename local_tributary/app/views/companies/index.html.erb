@@ -1,1 +1,24 @@
-Congrats on joining Local Tributary!
+<h3>Congrats on joining Local Tributary! Here are all the products you have for sale so far!</h3>
+
+
+<% @companies.each_slice(3) do |three_companies|%>
+  <div class="row">
+    <% three_companies.each do |company| %>
+      <div class="col-md-4">
+        <div class="well">
+        <div>
+        </div>
+          <h3>Company: <%= company.company.name %> </h3>
+          <p>Name: <%= company.name %></p>
+          <p>Delivery Time: <%= company.delivery_time %> minutes </p>
+          <p>Delivery Radius: <%= company.company.deliver_radius %> feet </p>
+          <p>Category: <%= company.category %></p>
+          <p>Price: $<%= company.price %></p>
+          <hr>
+          <a href="/products/<%= company.id %>">Purchase this product!</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
