@@ -4,10 +4,10 @@ class ProductsController < ApplicationController
   
   def index
     if params[:category]
-      @products = Category.find_by(name: params[:category]).products
+      @companies = Category.find_by(name: params[:category]).companies
       @companies = Category.find_by(name: params[:category]).companies
     else
-      @products = Product.all
+      @companies = Product.all
       @companies = Product.all
     end
   end
